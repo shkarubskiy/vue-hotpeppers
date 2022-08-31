@@ -1,29 +1,38 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <HeaderTemplate></HeaderTemplate>
+  <main class="main">
+    <section class="main__logo">
+      <img src="./assets/logo.png" alt="./logo" />
+    </section>
+    <router-view />
+  </main>
+  <FooterTemplate></FooterTemplate>
 </template>
 
+<script>
+import HeaderTemplate from "@/components/HeaderTemplate.vue";
+import FooterTemplate from "@/components/FooterTemplate.vue";
+
+export default {
+  name: "App",
+  components: {
+    HeaderTemplate,
+    FooterTemplate,
+  },
+};
+</script>
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+.main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #fff7df 0%, #fcead3 100%);
+  &__logo {
+    height: 100px;
+    width: 100px;
+    & > img {
+      height: 100%;
     }
   }
 }
