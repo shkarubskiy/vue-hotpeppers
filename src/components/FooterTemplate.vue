@@ -10,16 +10,26 @@ export default {
   name: "FooterTemplate",
 };
 
-window.onload = function () {
+window.onscroll = () => {
   let footerContainer = document.querySelector(".footer__container");
   let footerPattern = document.querySelector(".footer__pattern");
-  window.onscroll = () => {
-    if (window.pageYOffset - footerPattern.offsetHeight <= 0) {
-      footerContainer.classList.add("sticky");
-    } else {
-      footerContainer.classList.remove("sticky");
-    }
-  };
+  let scrollHeight = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.offsetHeight,
+    document.body.clientHeight,
+    document.documentElement.clientHeight
+  );
+
+  if (
+    window.pageYOffset <=
+    scrollHeight - window.innerHeight - footerPattern.offsetHeight
+  ) {
+    footerContainer.classList.add("sticky");
+  } else {
+    footerContainer.classList.remove("sticky");
+  }
 };
 </script>
 
