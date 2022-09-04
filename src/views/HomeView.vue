@@ -17,15 +17,19 @@
     <div class="peppers__cover cover">
       <img
         class="cover__image"
-        :src="require(`@/assets/peppers/${peppers[0].cover}`)"
-        :alt="peppers[0].name"
+        src="../assets/home/trinidad-scorpion-moruga-red.png"
+        alt="Trinidad Scorpion Moruga Red"
       />
     </div>
-    <h3 class="peppers__subtitle subtitle">{{ peppers[0].name }}</h3>
+    <h3 class="peppers__subtitle subtitle">Trinidad Scorpion Moruga Red</h3>
     <p class="peppers__text text">
-      {{ peppers[0].desc }}
+      В 2012 году Trinidad Moruga Scorpion был признан самой острой из всех
+      существующих разновидностей Capsicum chinense и лишь недавно отдал
+      первенство своему еще более огненному родственнику - Carolina Reaper Red.
     </p>
-    <button class="peppers__button button">Все острые перцы</button>
+    <router-link to="/peppers">
+      <button class="peppers__button button">Все острые перцы</button>
+    </router-link>
   </section>
   <section class="social">
     <a href="#" class="social__item">

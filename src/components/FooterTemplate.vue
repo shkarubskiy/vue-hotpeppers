@@ -2,9 +2,35 @@
   <footer class="footer">
     <div class="footer__container sticky">
       <nav class="footer__nav nav">
-        <a class="nav__item" href="">
-          <img src="" alt="" class="nav__image" />
-        </a>
+        <router-link
+          class="nav__item"
+          :class="{ active: currentRouteName == 'home' }"
+          to="/"
+        >
+          <img src="../assets/footer/home.svg" alt="Home" class="nav__image" />
+        </router-link>
+        <router-link
+          class="nav__item"
+          :class="{ active: currentRouteName == 'sauces' }"
+          to="/"
+        >
+          <img
+            src="../assets/footer/sauces.svg"
+            alt="Sauces"
+            class="nav__image"
+          />
+        </router-link>
+        <router-link
+          class="nav__item"
+          :class="{ active: currentRouteName == 'peppers' }"
+          to="/peppers"
+        >
+          <img
+            src="../assets/footer/peppers.svg"
+            alt="Peppers"
+            class="nav__image"
+          />
+        </router-link>
       </nav>
     </div>
     <div class="footer__pattern"></div>
@@ -14,6 +40,11 @@
 <script>
 export default {
   name: "FooterTemplate",
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
+    },
+  },
 };
 
 window.onscroll = () => {
@@ -41,13 +72,20 @@ window.onscroll = () => {
 
 <style lang="less" scoped>
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &__container {
     height: 70px;
+    width: 100%;
     padding: 15px;
+    display: flex;
+    justify-content: center;
     background: #ffffff;
   }
 
   &__nav {
+    width: 320px;
     display: flex;
     justify-content: space-around;
   }
@@ -64,14 +102,20 @@ window.onscroll = () => {
 .nav__item {
   width: 40px;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   border: solid 4px #bdbdbd;
+}
+
+.active {
+  border: solid 4px #eb5757;
 }
 
 .sticky {
   position: fixed;
   bottom: 0;
-  width: 100%;
   z-index: 100;
 }
 </style>
