@@ -6,6 +6,14 @@
         <img src="./assets/logo.svg" alt="Logo" />
       </div>
       <router-view />
+      <div class="main__about">
+        <p class="about__text text">
+          В нашем ассортименте более 7 самых лучших и жгучих сортов перца со
+          всего мира!Приобретая свежевыращенные суперострые перцы вы можете их
+          использовать как лучшее экстремальное дополнение к блюду, готовить
+          свои разнообразные суперхот соусы, так же использовать семена!
+        </p>
+      </div>
     </main>
   </div>
   <FooterTemplate></FooterTemplate>
@@ -48,7 +56,7 @@ export default {
   color: #333333;
 }
 
-.subtitle {
+.subtitle-pepper {
   font-family: "Caveat";
   font-style: normal;
   font-weight: 700;
@@ -58,6 +66,19 @@ export default {
   letter-spacing: -0.02em;
   font-feature-settings: "calt" off;
   color: #000000;
+}
+
+.subtitle-sauce {
+  font-family: "Kurale";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  font-feature-settings: "calt" off;
+  color: #000000;
+  text-decoration: none;
 }
 
 .text {
@@ -103,6 +124,11 @@ export default {
   &__logo {
     height: 100px;
     width: 100px;
+  }
+
+  &__text {
+    margin-top: 30px;
+    text-align: center;
   }
 }
 </style>

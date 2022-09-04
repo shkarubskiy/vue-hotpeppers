@@ -1,30 +1,29 @@
 <template>
-  <div class="pepper__card">
-    <div class="pepper__cover">
-      <img
-        :src="require(`@/assets/peppers/${pepper.cover}`)"
-        :alt="pepper.name"
-      />
+  <div class="sauce__card">
+    <div class="sauce__cover">
+      <img :src="require(`@/assets/sauces/${sauce.cover}`)" :alt="sauce.name" />
     </div>
-    <h3 class="pepper__subtitle subtitle-pepper">{{ pepper.name }}</h3>
+    <h2 class="sauce__subtitle subtitle-sauce">
+      {{ sauce.name }} Extra Hot Sauce
+    </h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: "PepperCard",
+  name: "SauceCard",
   props: {
-    pepper: null,
+    sauce: null,
   },
 };
 </script>
 
 <style lang="less" scoped>
-.pepper {
+.sauce {
   &__card {
     width: 165px;
-    height: 250px;
-    padding: 10px 2.5px;
+    height: 200px;
+    padding: 10px;
     margin-bottom: 30px;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
@@ -32,18 +31,22 @@ export default {
   }
 
   &__cover {
-    height: 160px;
+    height: 120px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    border-radius: 26px;
   }
+
   &__cover > img {
     height: auto;
     width: 100%;
   }
+
   &__subtitle {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 }
 </style>

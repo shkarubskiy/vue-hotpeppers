@@ -6,13 +6,15 @@
           class="nav__item"
           :class="{ active: currentRouteName == 'home' }"
           to="/"
+          @click="this.scrollToTop"
         >
           <img src="../assets/footer/home.svg" alt="Home" class="nav__image" />
         </router-link>
         <router-link
           class="nav__item"
           :class="{ active: currentRouteName == 'sauces' }"
-          to="/"
+          to="/sauces"
+          @click="this.scrollToTop"
         >
           <img
             src="../assets/footer/sauces.svg"
@@ -24,6 +26,7 @@
           class="nav__item"
           :class="{ active: currentRouteName == 'peppers' }"
           to="/peppers"
+          @click="this.scrollToTop"
         >
           <img
             src="../assets/footer/peppers.svg"
@@ -43,6 +46,11 @@ export default {
   computed: {
     currentRouteName() {
       return this.$route.name;
+    },
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
     },
   },
 };

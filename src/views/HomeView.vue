@@ -11,22 +11,24 @@
     </p>
   </section>
   <section class="sauces">
-    <button class="sauces__button button">Все соусы в каталоге</button>
+    <div class="sauces__container">
+      <SauceCard v-for="sauce in sauces" :sauce="sauce" :key="sauce.id">
+      </SauceCard>
+    </div>
+    <router-link to="/sauces">
+      <button class="sauces__button button">Все соусы в каталоге</button>
+    </router-link>
   </section>
   <section class="peppers">
     <div class="peppers__cover cover">
       <img
         class="cover__image"
-        src="../assets/home/trinidad-scorpion-moruga-red.png"
+        :src="require(`@/assets/peppers/${peppers[0].cover}`)"
         alt="Trinidad Scorpion Moruga Red"
       />
     </div>
-    <h3 class="peppers__subtitle subtitle">Trinidad Scorpion Moruga Red</h3>
-    <p class="peppers__text text">
-      В 2012 году Trinidad Moruga Scorpion был признан самой острой из всех
-      существующих разновидностей Capsicum chinense и лишь недавно отдал
-      первенство своему еще более огненному родственнику - Carolina Reaper Red.
-    </p>
+    <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[0].name }}</h3>
+    <p class="peppers__text text">{{ peppers[0].desc }}</p>
     <router-link to="/peppers">
       <button class="peppers__button button">Все острые перцы</button>
     </router-link>
@@ -42,26 +44,26 @@
       <img class="social__image" src="../assets/ig.png" alt="" />
     </a>
   </section>
-  <section class="about">
-    <img class="about__image" src="../assets/home/path.svg" alt="Path" />
-    <p class="about__text text">
-      В нашем ассортименте более 7 самых лучших и жгучих сортов перца со всего
-      мира!Приобретая свежевыращенные суперострые перцы вы можете их
-      использовать как лучшее экстремальное дополнение к блюду, готовить свои
-      разнообразные суперхот соусы, так же использовать семена!
-    </p>
+  <section class="path">
+    <img class="path__image" src="../assets/home/path.svg" alt="Path" />
   </section>
 </template>
 
 <script>
+import SauceCard from "@/components/SauceCard.vue";
 import peppers from "@/json/peppers.json";
+import sauces from "@/json/sauces.json";
 export default {
   name: "HomeView",
   computed: {
     peppers() {
       return peppers;
     },
+    sauces() {
+      return sauces;
+    },
   },
+  components: { SauceCard },
 };
 </script>
 
@@ -94,8 +96,14 @@ export default {
 }
 
 .sauces {
-  &__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__container {
     margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
@@ -144,7 +152,7 @@ export default {
   justify-content: space-between;
 }
 
-.about {
+.path {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -153,11 +161,6 @@ export default {
   &__image {
     height: 100%;
     width: auto;
-  }
-
-  &__text {
-    margin-top: 30px;
-    text-align: center;
   }
 }
 </style>
