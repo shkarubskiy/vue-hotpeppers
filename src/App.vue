@@ -1,11 +1,13 @@
 <template>
   <HeaderTemplate></HeaderTemplate>
-  <main class="main">
-    <section class="main__logo">
-      <img src="./assets/logo.png" alt="./logo" />
-    </section>
-    <router-view />
-  </main>
+  <div class="wrapper">
+    <main class="main">
+      <section class="main__logo logo">
+        <img class="logo__image" src="./assets/logo.svg" alt="Logo" />
+      </section>
+      <router-view />
+    </main>
+  </div>
   <FooterTemplate></FooterTemplate>
 </template>
 
@@ -22,18 +24,23 @@ export default {
 };
 </script>
 <style lang="less">
-.main {
-  padding: 20px;
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(180deg, #fff7df 0%, #fcead3 100%);
+}
+
+.main {
+  max-width: 390px;
+  padding: 20px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__logo {
     height: 100px;
     width: 100px;
-    & > img {
-      height: 100%;
-    }
   }
 }
 </style>

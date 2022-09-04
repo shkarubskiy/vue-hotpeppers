@@ -1,6 +1,12 @@
 <template>
   <footer class="footer">
-    <div class="footer__container sticky"></div>
+    <div class="footer__container sticky">
+      <nav class="footer__nav nav">
+        <a class="nav__item" href="">
+          <img src="" alt="" class="nav__image" />
+        </a>
+      </nav>
+    </div>
     <div class="footer__pattern"></div>
   </footer>
 </template>
@@ -37,19 +43,35 @@ window.onscroll = () => {
 .footer {
   &__container {
     height: 70px;
+    padding: 15px;
     background: #ffffff;
   }
+
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
   &__pattern {
     width: 100%;
     height: 200px;
-    background-image: url(../assets/pattern.png);
+    background-image: url(../assets/pattern.svg);
     background-size: contain;
     border-top: solid 2px #f2c94c;
   }
 }
+
+.nav__item {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: solid 4px #bdbdbd;
+}
+
 .sticky {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 100;
 }
 </style>

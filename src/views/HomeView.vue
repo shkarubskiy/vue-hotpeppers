@@ -3,6 +3,9 @@
     <h2 class="intro__title title">
       Экстра острые соусы в Алматы &#127798;&#65039;&#128293;&#10084;&#65039;
     </h2>
+    <div class="intro__cover cover">
+      <img class="cover__image" src="../assets/home/intro.jpg" alt="" />
+    </div>
     <p class="intro__text text">
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
@@ -11,11 +14,16 @@
     <button class="sauces__button button">Все соусы в каталоге</button>
   </section>
   <section class="peppers">
-    <h3 class="peppers__subtitle subtitle">Trinidad Scorpion Moruga Red</h3>
+    <div class="peppers__cover cover">
+      <img
+        class="cover__image"
+        :src="require(`@/assets/peppers/${peppers[0].cover}`)"
+        :alt="peppers[0].name"
+      />
+    </div>
+    <h3 class="peppers__subtitle subtitle">{{ peppers[0].name }}</h3>
     <p class="peppers__text text">
-      В 2012 году Trinidad Moruga Scorpion был признан самой острой из всех
-      существующих разновидностей Capsicum chinense и лишь недавно отдал
-      первенство своему еще более огненному родственнику - Carolina Reaper Red.
+      {{ peppers[0].desc }}
     </p>
     <button class="peppers__button button">Все острые перцы</button>
   </section>
@@ -31,7 +39,7 @@
     </a>
   </section>
   <section class="about">
-    <img class="about__image" src="../assets/path.png" alt="" />
+    <img class="about__image" src="../assets/home/path.svg" alt="Path" />
     <p class="about__text text">
       В нашем ассортименте более 7 самых лучших и жгучих сортов перца со всего
       мира!Приобретая свежевыращенные суперострые перцы вы можете их
@@ -42,18 +50,51 @@
 </template>
 
 <script>
+import peppers from "@/json/peppers.json";
 export default {
   name: "HomeView",
+  computed: {
+    peppers() {
+      return peppers;
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
-.intro > * {
-  margin-top: 30px;
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin-top: 30px;
+  }
+
+  &__cover {
+    width: 350px;
+    height: 350px;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  .cover__image {
+    height: 100%;
+    width: auto;
+  }
+
+  &__text {
+    margin-top: 30px;
+  }
 }
-.sauces > * {
-  margin-top: 30px;
+
+.sauces {
+  &__button {
+    margin-top: 30px;
+  }
 }
+
 .peppers {
   width: 100%;
   margin-top: 30px;
@@ -64,43 +105,55 @@ export default {
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
   border-radius: 26px;
+
+  &__cover {
+    height: 216px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
   &__subtitle {
     margin-top: 10px;
   }
+
   &__text {
     margin-top: 10px;
   }
+
   &__button {
     margin-top: 20px;
   }
 }
+
+.cover__image {
+  height: 100%;
+  width: auto;
+}
+
 .social {
   width: 100%;
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
 }
+
 .about {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__image {
     height: 100%;
     width: auto;
   }
+
   &__text {
     margin-top: 30px;
     text-align: center;
   }
 }
-// .test {
-//   height: 160px;
-//   width: 80px;
-//   border-top-right-radius: 160px;
-//   border-bottom-right-radius: 160px;
-//   border: 4px solid gray;
-//   border-left: 0;
-//   filter: drop-shadow(0px 9px 4px rgba(0, 0, 0, 0.11));
-// }
 </style>

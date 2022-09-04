@@ -7,6 +7,10 @@
   border: none;
 }
 
+.body {
+  overflow: hidden;
+}
+
 .title {
   font-family: "Alegreya";
   font-style: normal;
@@ -40,9 +44,9 @@
   font-feature-settings: "calt" off;
   color: #000000;
 }
+
 .button {
   padding: 9px 24px;
-  margin: 10px 0;
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
