@@ -83,6 +83,7 @@ window.onscroll = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__container {
     height: 70px;
     width: 100%;

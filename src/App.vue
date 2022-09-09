@@ -41,10 +41,6 @@ export default {
   border: none;
 }
 
-.body {
-  overflow: hidden;
-}
-
 .title {
   font-family: "Alegreya";
   font-style: normal;
@@ -124,6 +120,10 @@ export default {
   &__logo {
     height: 100px;
     width: 100px;
+  }
+
+  &__logo img {
+    object-fit: cover;
   }
 
   &__text {

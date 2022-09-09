@@ -1,11 +1,11 @@
 <template>
   <section class="intro">
-    <h2 class="intro__title title">
-      Экстра острые соусы в Алматы &#127798;&#65039;&#128293;&#10084;&#65039;
-    </h2>
     <div class="intro__cover cover">
       <img class="cover__image" src="../assets/sauces/intro.png" alt="intro" />
     </div>
+    <h2 class="intro__title title">
+      Экстра острые соусы в Алматы &#127798;&#65039;&#128293;&#10084;&#65039;
+    </h2>
     <p class="intro__text text">
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
@@ -15,14 +15,21 @@
       <SauceCard v-for="sauce in sauces" :sauce="sauce" :key="sauce.id">
       </SauceCard>
     </div>
-    <router-link to="/sauces">
-      <button class="sauces__button button">Все соусы в каталоге</button>
-    </router-link>
   </section>
 </template>
 
 <script>
-export default {};
+import SauceCard from "@/components/SauceCard.vue";
+import sauces from "@/json/sauces.json";
+export default {
+  name: "SaucesView",
+  components: { SauceCard },
+  computed: {
+    sauces() {
+      return sauces;
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -44,12 +51,24 @@ export default {};
   }
 
   .cover__image {
-    height: 100%;
-    width: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0px -70px;
   }
 
   &__text {
     margin-top: 30px;
+  }
+}
+.sauces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 </style>

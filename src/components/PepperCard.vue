@@ -1,5 +1,9 @@
 <template>
-  <div class="pepper__card">
+  <router-link
+    class="pepper__card"
+    :to="getLink(pepper.id)"
+    @click="this.scrollToTop"
+  >
     <div class="pepper__cover">
       <img
         :src="require(`@/assets/peppers/${pepper.cover}`)"
@@ -7,7 +11,7 @@
       />
     </div>
     <h3 class="pepper__subtitle subtitle-pepper">{{ pepper.name }}</h3>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -15,6 +19,14 @@ export default {
   name: "PepperCard",
   props: {
     pepper: null,
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+    getLink(id) {
+      return `/peppers/${id}`;
+    },
   },
 };
 </script>
@@ -29,6 +41,7 @@ export default {
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
     border-radius: 26px;
+    text-decoration: none;
   }
 
   &__cover {
