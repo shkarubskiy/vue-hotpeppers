@@ -1,7 +1,7 @@
 <template>
   <section class="intro">
     <div class="intro__cover">
-      <img src="../assets/home/intro.jpg" alt="Intro" />
+      <img src="../assets/home/intro.jpg" alt="Intro cover" />
     </div>
     <h2 class="intro__title title">Экстра острые соусы в Алматы 🌶️🔥❤️</h2>
     <p class="intro__text text">
@@ -82,6 +82,7 @@ export default {
     margin-top: 30px;
     overflow: hidden;
     border-radius: 20px;
+
     & img {
       height: 100%;
       width: 100%;
@@ -98,6 +99,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__container {
     margin-top: 30px;
     display: flex;
@@ -124,6 +126,7 @@ export default {
     justify-content: center;
     overflow: hidden;
     border-radius: 20px;
+    
     & img {
       width: 100%;
       height: 100%;
