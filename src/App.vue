@@ -1,10 +1,10 @@
 <template>
-  <HeaderTemplate></HeaderTemplate>
+  <HeaderTemplate />
   <div class="wrapper">
     <main class="main">
-      <div class="main__logo">
+      <router-link to="/" class="main__logo">
         <img src="./assets/logo.svg" alt="Logo" />
-      </div>
+      </router-link>
       <router-view />
       <div class="main__about">
         <p class="about__text text">
@@ -16,7 +16,7 @@
       </div>
     </main>
   </div>
-  <FooterTemplate></FooterTemplate>
+  <FooterTemplate />
 </template>
 
 <script>
@@ -56,29 +56,31 @@ body {
   color: #333333;
 }
 
-.subtitle-pepper {
-  font-family: "Caveat";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
-  text-align: center;
-  letter-spacing: -0.02em;
-  font-feature-settings: "calt" off;
-  color: #000000;
-}
+.subtitle {
+  &-pepper {
+    font-family: "Caveat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    font-feature-settings: "calt" off;
+    color: #000000;
+  }
 
-.subtitle-sauce {
-  font-family: "Kurale";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  letter-spacing: -0.02em;
-  font-feature-settings: "calt" off;
-  color: #000000;
-  text-decoration: none;
+  &-sauce {
+    font-family: "Kurale";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    font-feature-settings: "calt" off;
+    color: #000000;
+    text-decoration: none;
+  }
 }
 
 .text {
