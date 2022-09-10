@@ -25,7 +25,6 @@ export default {
 <style lang="less" scoped>
 .social {
   width: 100%;
-  margin-top: 30px;
   display: flex;
   justify-content: space-between;
 }

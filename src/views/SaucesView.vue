@@ -16,14 +16,16 @@
       </SauceCard>
     </div>
   </section>
+  <SocialBlock />
 </template>
 
 <script>
 import SauceCard from "@/components/SauceCard.vue";
+import SocialBlock from "@/components/SocialBlock.vue";
 import sauces from "@/json/sauces.json";
 export default {
   name: "SaucesView",
-  components: { SauceCard },
+  components: { SauceCard, SocialBlock },
   computed: {
     sauces() {
       return sauces;

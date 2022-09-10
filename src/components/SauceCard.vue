@@ -8,7 +8,7 @@
       <img :src="require(`@/assets/sauces/${sauce.cover}`)" :alt="sauce.name" />
     </div>
     <h2 class="sauce__subtitle subtitle-sauce">
-      {{ sauce.name }} Extra Hot Sauce
+      {{ sauce.name }} Sauce — Extra Hot
     </h2>
   </router-link>
 </template>

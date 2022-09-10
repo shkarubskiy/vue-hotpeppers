@@ -22,15 +22,18 @@
       </PepperCard>
     </div>
   </section>
+  <SocialBlock />
 </template>
 
 <script>
 import PepperCard from "@/components/PepperCard.vue";
+import SocialBlock from "@/components/SocialBlock.vue";
 import peppers from "@/json/peppers.json";
 export default {
   name: "PeppersView",
   components: {
     PepperCard,
+    SocialBlock,
   },
   computed: {
     peppers() {
@@ -42,7 +45,7 @@ export default {
 
 <style lang="less" scoped>
 .peppers {
-  padding: 30px 20px 50px;
+  padding: 30px 20px 0px;
 
   &__title {
     margin-top: 30px;

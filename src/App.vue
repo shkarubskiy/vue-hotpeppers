@@ -109,6 +109,10 @@ body {
   cursor: pointer;
 }
 
+.button:hover {
+  background: #ea4040;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
