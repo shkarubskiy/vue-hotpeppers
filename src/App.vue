@@ -41,6 +41,10 @@ export default {
   border: none;
 }
 
+body {
+  min-width: 320px;
+}
+
 .title {
   font-family: "Alegreya";
   font-style: normal;
@@ -111,6 +115,7 @@ export default {
 }
 
 .main {
+  width: 100%;
   max-width: 390px;
   padding: 20px 20px 50px;
   display: flex;

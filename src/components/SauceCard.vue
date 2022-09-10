@@ -33,7 +33,7 @@ export default {
 <style lang="less" scoped>
 .sauce {
   &__card {
-    width: 165px;
+    width: 48%;
     height: 200px;
     padding: 10px;
     margin-bottom: 30px;
@@ -54,8 +54,9 @@ export default {
   }
 
   &__cover > img {
-    height: auto;
+    height: 100%;
     width: 100%;
+    object-fit: cover;
   }
 
   &__subtitle {
