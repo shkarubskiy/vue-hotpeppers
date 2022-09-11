@@ -34,6 +34,23 @@
             class="nav__image"
           />
         </router-link>
+        <a class="nav__item" href="tel:+7-701-222-01-01">
+          <img
+            src="../assets/footer/phone.svg"
+            alt="Peppers"
+            class="nav__image"
+          />
+        </a>
+        <a
+          class="nav__item"
+          href="https://wa.me/77012220111?text=Здравствуйте%2C+хочу+окунуться+в+тонкий+мир+палящего+вкуса"
+        >
+          <img
+            src="../assets/footer/whatsapp.svg"
+            alt="Peppers"
+            class="nav__image"
+          />
+        </a>
       </nav>
     </div>
     <div class="footer__pattern"></div>

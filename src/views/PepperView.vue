@@ -9,12 +9,20 @@
     <h2 class="pepper__title title">{{ pepper.name }}</h2>
     <p class="pepper__text text">{{ pepper.alias }} {{ pepper.desc }}</p>
   </section>
+  <PeppersBlock />
+  <SocialBlock />
 </template>
 
 <script>
+import SocialBlock from "@/components/SocialBlock.vue";
 import peppers from "@/json/peppers.json";
+import PeppersBlock from "@/components/PeppersBlock.vue";
 export default {
   name: "PepperView",
+  components: {
+    SocialBlock,
+    PeppersBlock,
+  },
   computed: {
     peppers() {
       return peppers;
