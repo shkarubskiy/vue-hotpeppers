@@ -16,18 +16,21 @@
       </div>
     </main>
   </div>
+  <NavbarTempalte />
   <FooterTemplate />
 </template>
 
 <script>
 import HeaderTemplate from "@/components/HeaderTemplate.vue";
 import FooterTemplate from "@/components/FooterTemplate.vue";
+import NavbarTempalte from "@/components/NavbarTempalte.vue";
 
 export default {
   name: "App",
   components: {
     HeaderTemplate,
     FooterTemplate,
+    NavbarTempalte,
   },
 };
 </script>
