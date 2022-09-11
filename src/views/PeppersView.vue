@@ -17,23 +17,20 @@
       того,перец является хорошим источником витаминов группы B и в частности
       витамина B6. Красный перец богат также калием, магнием и железом.
     </p>
-    <div class="peppers__container">
-      <PepperCard v-for="pepper in peppers" :pepper="pepper" :key="pepper.id">
-      </PepperCard>
-    </div>
+    <PeppersBlock />
   </section>
   <SocialBlock />
 </template>
 
 <script>
-import PepperCard from "@/components/PepperCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
 import peppers from "@/json/peppers.json";
+import PeppersBlock from "@/components/PeppersBlock.vue";
 export default {
   name: "PeppersView",
   components: {
-    PepperCard,
     SocialBlock,
+    PeppersBlock,
   },
   computed: {
     peppers() {
@@ -45,7 +42,7 @@ export default {
 
 <style lang="less" scoped>
 .peppers {
-  padding: 30px 20px 0px;
+  margin-top: 30px;
 
   &__title {
     margin-top: 30px;
@@ -59,7 +56,8 @@ export default {
 
     & img {
       height: 100%;
-      width: auto;
+      width: 100%;
+      object-fit: cover;
     }
   }
 

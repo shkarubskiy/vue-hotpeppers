@@ -34,7 +34,7 @@ export default {
 <style lang="less" scoped>
 .pepper {
   &__card {
-    width: 165px;
+    width: 47%;
     height: 250px;
     padding: 10px 2.5px;
     margin-bottom: 30px;

@@ -45,17 +45,17 @@ export default {
   }
 
   &__cover {
-    width: 350px;
+    width: 100%;
     height: 350px;
     margin-top: 30px;
     overflow: hidden;
     border-radius: 20px;
-  }
-
-  .cover__image {
-    width: 100%;
-    object-fit: cover;
-    object-position: 0px -70px;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      // object-position: 0px -70px;
+    }
   }
 
   &__text {

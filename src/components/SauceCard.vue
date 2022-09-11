@@ -5,7 +5,10 @@
     @click="this.scrollToTop"
   >
     <div class="sauce__cover">
-      <img :src="require(`@/assets/sauces/${sauce.cover}`)" :alt="sauce.name" />
+      <img
+        :src="require(`@/assets/sauces/${sauce.img[1]}`)"
+        :alt="sauce.name"
+      />
     </div>
     <h2 class="sauce__subtitle subtitle-sauce">
       {{ sauce.name }} Sauce — Extra Hot
