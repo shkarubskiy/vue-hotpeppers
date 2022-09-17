@@ -17,7 +17,7 @@ export default {
   &__pattern {
     width: 100%;
     height: 200px;
-    background-image: url(../assets/pattern.svg);
+    background-image: url(../assets/pattern.png);
     background-size: contain;
     border-bottom: solid 2px #f2c94c;
   }
