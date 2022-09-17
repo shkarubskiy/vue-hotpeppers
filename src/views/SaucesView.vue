@@ -1,7 +1,7 @@
 <template>
   <section class="intro">
     <div class="intro__cover cover">
-      <img class="cover__image" src="../assets/sauces/intro.png" alt="intro" />
+      <img class="cover__image" src="../assets/sauces/intro.jpg" alt="intro" />
     </div>
     <h2 class="intro__title title">
       Экстра острые соусы в Алматы &#127798;&#65039;&#128293;&#10084;&#65039;
