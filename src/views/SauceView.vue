@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import sauces from "@/json/sauces.json";
+import sauces from "../assets/json/sauces.json";
 export default {
   name: "SauceView",
   computed: {

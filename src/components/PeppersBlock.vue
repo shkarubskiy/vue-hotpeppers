@@ -7,7 +7,7 @@
 
 <script>
 import PepperCard from "@/components/PepperCard.vue";
-import peppers from "@/json/peppers.json";
+import peppers from "../assets/json/peppers.json";
 export default {
   name: "PeppersBlock",
   components: PepperCard,

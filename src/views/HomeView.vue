@@ -41,8 +41,8 @@
 import SauceCard from "@/components/SauceCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
 import PathBlock from "@/components/PathBlock.vue";
-import peppers from "@/json/peppers.json";
-import sauces from "@/json/sauces.json";
+import peppers from "../assets/json/peppers.json";
+import sauces from "../assets/json/sauces.json";
 export default {
   name: "HomeView",
   computed: {

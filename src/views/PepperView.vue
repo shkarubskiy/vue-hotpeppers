@@ -15,7 +15,7 @@
 
 <script>
 import SocialBlock from "@/components/SocialBlock.vue";
-import peppers from "@/json/peppers.json";
+import peppers from "../assets/json/peppers.json";
 import PeppersBlock from "@/components/PeppersBlock.vue";
 export default {
   name: "PepperView",

@@ -22,7 +22,7 @@
 <script>
 import SauceCard from "@/components/SauceCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
-import sauces from "@/json/sauces.json";
+import sauces from "../assets/json/sauces.json";
 export default {
   name: "SaucesView",
   components: { SauceCard, SocialBlock },
