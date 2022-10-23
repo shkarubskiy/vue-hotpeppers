@@ -42,20 +42,41 @@ import SauceCard from "@/components/SauceCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
 import PathBlock from "@/components/PathBlock.vue";
 import peppers from "../assets/json/peppers.json";
-import sauces from "../assets/json/sauces.json";
+// import sauces from "../assets/json/sauces.json";
 export default {
   name: "HomeView",
+  data() {
+    return {
+      // peppers: null,
+      sauces: null,
+    };
+  },
   computed: {
     peppers() {
       return peppers;
     },
-    sauces() {
-      return sauces;
-    },
+    // sauces() {
+    //   return sauces;
+    // },
+  },
+  mounted() {
+    this.getSauces();
   },
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
+    },
+    getSauces() {
+      const url = "https://dev.angels.kz/?q=items/list";
+
+      fetch(url, {
+        method: "GET",
+      })
+        .then((response) => response.text())
+        .then((text) => {
+          this.sauces = JSON.parse(text).items;
+        })
+        .catch((err) => console.error(`JSON ERROR: ${err}`));
     },
   },
   components: {
