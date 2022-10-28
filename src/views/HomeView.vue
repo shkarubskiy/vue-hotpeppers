@@ -20,10 +20,7 @@
   </section>
   <section class="peppers">
     <div class="peppers__cover">
-      <img
-        :src="require(`@/assets/peppers/${peppers[0].cover}`)"
-        alt="Trinidad Scorpion Moruga Red"
-      />
+      <img :src="getPepperCover(peppers[0])" :alt="peppers[0].name" />
     </div>
     <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[0].name }}</h3>
     <p class="peppers__text text">{{ peppers[0].desc }}</p>
@@ -41,42 +38,52 @@
 import SauceCard from "@/components/SauceCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
 import PathBlock from "@/components/PathBlock.vue";
-import peppers from "../assets/json/peppers.json";
-// import sauces from "../assets/json/sauces.json";
 export default {
   name: "HomeView",
   data() {
     return {
-      // peppers: null,
-      sauces: null,
+      peppers: [
+        {
+          id: "",
+          name: "",
+          alias: "",
+          desc: "",
+          cover: "",
+        },
+      ],
+      sauces: [],
     };
   },
-  computed: {
-    peppers() {
-      return peppers;
-    },
-    // sauces() {
-    //   return sauces;
-    // },
-  },
-  mounted() {
-    this.getSauces();
+  created() {
+    const urlItems = "https://dev.angels.kz/?q=items/list";
+    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+
+    fetch(urlItems, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.sauces = JSON.parse(text).items;
+        // console.log(this.sauces);
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
+
+    fetch(urlPeppers, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.peppers = JSON.parse(text).peppers;
+        // console.log(this.peppers);
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    getSauces() {
-      const url = "https://dev.angels.kz/?q=items/list";
-
-      fetch(url, {
-        method: "GET",
-      })
-        .then((response) => response.text())
-        .then((text) => {
-          this.sauces = JSON.parse(text).items;
-        })
-        .catch((err) => console.error(`JSON ERROR: ${err}`));
+    getPepperCover(pepper) {
+      return `/img/peppers/${pepper.cover}`;
     },
   },
   components: {
