@@ -8,7 +8,7 @@
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
   </section>
-  <section class="sauces">
+  <section class="sauces" v-if="sauces">
     <div class="sauces__container">
       <SauceCard v-for="sauce in sauces" :sauce="sauce" :key="sauce.id" />
     </div>
@@ -18,9 +18,9 @@
       </button>
     </router-link>
   </section>
-  <section class="peppers">
+  <section v-if="peppers" class="peppers">
     <div class="peppers__cover">
-      <img :src="getPepperCover(peppers[0])" :alt="peppers[0].name" />
+      <img :src="getPepperCover(peppers[0].cover)" :alt="peppers[0].name" />
     </div>
     <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[0].name }}</h3>
     <p class="peppers__text text">{{ peppers[0].desc }}</p>
@@ -42,16 +42,8 @@ export default {
   name: "HomeView",
   data() {
     return {
-      peppers: [
-        {
-          id: "",
-          name: "",
-          alias: "",
-          desc: "",
-          cover: "",
-        },
-      ],
-      sauces: [],
+      peppers: null,
+      sauces: null,
     };
   },
   created() {
@@ -83,7 +75,7 @@ export default {
       window.scrollTo(0, 0);
     },
     getPepperCover(pepper) {
-      return `/img/peppers/${pepper.cover}`;
+      return `/img/peppers/${pepper}`;
     },
   },
   components: {

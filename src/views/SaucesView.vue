@@ -10,7 +10,7 @@
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
   </section>
-  <section class="sauces">
+  <section class="sauces" v-if="sauces">
     <div class="sauces__container">
       <SauceCard v-for="sauce in sauces" :sauce="sauce" :key="sauce.id">
       </SauceCard>
@@ -22,14 +22,26 @@
 <script>
 import SauceCard from "@/components/SauceCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
-import sauces from "../assets/json/sauces.json";
 export default {
   name: "SaucesView",
   components: { SauceCard, SocialBlock },
-  computed: {
-    sauces() {
-      return sauces;
-    },
+  data() {
+    return {
+      sauces: null,
+    };
+  },
+  created() {
+    const urlItems = "https://dev.angels.kz/?q=items/list";
+
+    fetch(urlItems, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.sauces = JSON.parse(text).items;
+        // console.log(this.sauces);
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
 };
 </script>
@@ -50,6 +62,7 @@ export default {
     margin-top: 30px;
     overflow: hidden;
     border-radius: 20px;
+
     & img {
       width: 100%;
       height: 100%;
@@ -62,10 +75,12 @@ export default {
     margin-top: 30px;
   }
 }
+
 .sauces {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__container {
     margin-top: 30px;
     display: flex;

@@ -1,14 +1,12 @@
 <template>
   <router-link
+    v-if="pepper"
     class="pepper__card"
     :to="getLink(pepper.id)"
     @click="this.scrollToTop"
   >
     <div class="pepper__cover">
-      <img
-        :src="require(`@/assets/peppers/${pepper.cover}`)"
-        :alt="pepper.name"
-      />
+      <img :src="getPepperCover(pepper.cover)" :alt="pepper.name" />
     </div>
     <h3 class="pepper__subtitle subtitle-pepper">{{ pepper.name }}</h3>
   </router-link>
@@ -26,6 +24,9 @@ export default {
     },
     getLink(id) {
       return `/peppers/${id}`;
+    },
+    getPepperCover(pepper) {
+      return `/img/peppers/${pepper}`;
     },
   },
 };

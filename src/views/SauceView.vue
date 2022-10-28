@@ -1,9 +1,9 @@
 <template>
-  <section class="sauce">
+  <section class="sauce" v-if="sauces">
     <div class="sauce__cover">
       <img
         class="preview"
-        :src="require(`@/assets/sauces/${sauce.img[1]}`)"
+        :src="getSauceCover(sauce.img[1])"
         :alt="sauce.name"
       />
     </div>
@@ -12,9 +12,9 @@
         class="sauce__image"
         v-for="(img, index) in sauce.img"
         :key="index"
-        @click="showImg(require(`@/assets/sauces/${img}`))"
+        @click="showImg(getSauceCover(img))"
       >
-        <img :src="require(`@/assets/sauces/${img}`)" alt="" />
+        <img :src="getSauceCover(img)" alt="" />
       </div>
     </div>
     <h2 class="sauce__title title">{{ sauce.name }}</h2>
@@ -25,21 +25,38 @@
 </template>
 
 <script>
-import sauces from "../assets/json/sauces.json";
 export default {
   name: "SauceView",
+  data() {
+    return {
+      sauces: null,
+    };
+  },
+  created() {
+    const urlItems = "https://dev.angels.kz/?q=items/list";
+
+    fetch(urlItems, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.sauces = JSON.parse(text).items;
+        // console.log(this.sauces);
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
+  },
   computed: {
-    sauces() {
-      return sauces;
-    },
     sauce() {
-      return sauces[this.$route.params.id - 1];
+      return this.sauces[this.$route.params.id - 1];
     },
   },
   methods: {
     showImg(image) {
       const preview = document.querySelector(".preview");
       preview.src = image;
+    },
+    getSauceCover(sauce) {
+      return `/img/sauces/${sauce}`;
     },
   },
 };
