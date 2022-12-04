@@ -3,7 +3,7 @@
     <div class="sauce__cover">
       <img
         class="preview"
-        :src="getSauceCover(sauce.img[1])"
+        :src="'https://dev.angels.kz/' + sauce.img[1]"
         :alt="sauce.name"
       />
     </div>
@@ -12,9 +12,9 @@
         class="sauce__image"
         v-for="(img, index) in sauce.img"
         :key="index"
-        @click="showImg(getSauceCover(img))"
+        @click="showImg('https://dev.angels.kz/' + img)"
       >
-        <img :src="getSauceCover(img)" alt="" />
+        <img :src="'https://dev.angels.kz/' + img" alt="" />
       </div>
     </div>
     <h2 class="sauce__title title">{{ sauce.name }}</h2>

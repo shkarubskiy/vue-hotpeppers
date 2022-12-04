@@ -20,7 +20,11 @@
   </section>
   <section v-if="peppers" class="peppers">
     <div class="peppers__cover">
-      <img :src="getPepperCover(peppers[0].cover)" :alt="peppers[0].name" />
+      <img
+        :src="'https://dev.angels.kz/' + peppers[0].img[0]"
+        :alt="peppers[0].name"
+        v-if="peppers[0].img[0]"
+      />
     </div>
     <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[0].name }}</h3>
     <p class="peppers__text text">{{ peppers[0].desc }}</p>

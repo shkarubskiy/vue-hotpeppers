@@ -1,7 +1,7 @@
 <template>
   <section class="pepper" v-if="peppers">
     <div class="pepper__cover">
-      <img :src="getPepperCover(pepper.cover)" :alt="pepper.name" />
+      <img :src="'https://dev.angels.kz/' + pepper.img[0]" :alt="pepper.name" />
     </div>
     <h2 class="pepper__title title">{{ pepper.name }}</h2>
     <p class="pepper__text text">{{ pepper.alias }} {{ pepper.desc }}</p>

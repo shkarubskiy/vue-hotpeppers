@@ -6,7 +6,11 @@
     @click="this.scrollToTop"
   >
     <div class="sauce__cover">
-      <img :src="getSauceCover(sauce.img[1])" :alt="sauce.name" />
+      <img
+        :src="'https://dev.angels.kz/' + sauce.img[1]"
+        :alt="sauce.name"
+        v-if="sauce.img"
+      />
     </div>
     <h2 class="sauce__subtitle subtitle-sauce">
       {{ sauce.name }} Sauce — Extra Hot

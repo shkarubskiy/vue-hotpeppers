@@ -6,7 +6,11 @@
     @click="this.scrollToTop"
   >
     <div class="pepper__cover">
-      <img :src="getPepperCover(pepper.cover)" :alt="pepper.name" />
+      <img
+        :src="'https://dev.angels.kz/' + pepper.img[0]"
+        :alt="pepper.name"
+        v-if="pepper.img"
+      />
     </div>
     <h3 class="pepper__subtitle subtitle-pepper">{{ pepper.name }}</h3>
   </router-link>
@@ -52,10 +56,12 @@ export default {
     justify-content: center;
     align-items: center;
   }
+
   &__cover > img {
     height: auto;
     width: 100%;
   }
+
   &__subtitle {
     margin-top: 10px;
   }
