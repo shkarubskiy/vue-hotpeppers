@@ -8,7 +8,7 @@
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
   </section>
-  <section class="sauces">
+  <section class="sauces" v-if="sauces">
     <div class="sauces__container">
       <SauceCard v-for="sauce in sauces" :sauce="sauce" :key="sauce.id" />
     </div>
@@ -18,11 +18,12 @@
       </button>
     </router-link>
   </section>
-  <section class="peppers">
+  <section v-if="peppers" class="peppers">
     <div class="peppers__cover">
       <img
-        :src="require(`@/assets/peppers/${peppers[0].cover}`)"
-        alt="Trinidad Scorpion Moruga Red"
+        :src="'https://dev.angels.kz/' + peppers[0].img[0]"
+        :alt="peppers[0].name"
+        v-if="peppers[0].img[0]"
       />
     </div>
     <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[0].name }}</h3>
@@ -41,21 +42,44 @@
 import SauceCard from "@/components/SauceCard.vue";
 import SocialBlock from "@/components/SocialBlock.vue";
 import PathBlock from "@/components/PathBlock.vue";
-import peppers from "../assets/json/peppers.json";
-import sauces from "../assets/json/sauces.json";
 export default {
   name: "HomeView",
-  computed: {
-    peppers() {
-      return peppers;
-    },
-    sauces() {
-      return sauces;
-    },
+  data() {
+    return {
+      peppers: null,
+      sauces: null,
+    };
+  },
+  created() {
+    const urlItems = "https://dev.angels.kz/?q=items/list";
+    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+
+    fetch(urlItems, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.sauces = JSON.parse(text).items;
+        // console.log(this.sauces);
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
+
+    fetch(urlPeppers, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.peppers = JSON.parse(text).peppers;
+        // console.log(this.peppers);
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
+    },
+    getPepperCover(pepper) {
+      return `/img/peppers/${pepper}`;
     },
   },
   components: {

@@ -1,13 +1,15 @@
 <template>
   <router-link
+    v-if="pepper"
     class="pepper__card"
     :to="getLink(pepper.id)"
     @click="this.scrollToTop"
   >
     <div class="pepper__cover">
       <img
-        :src="require(`@/assets/peppers/${pepper.cover}`)"
+        :src="'https://dev.angels.kz/' + pepper.img[0]"
         :alt="pepper.name"
+        v-if="pepper.img"
       />
     </div>
     <h3 class="pepper__subtitle subtitle-pepper">{{ pepper.name }}</h3>
@@ -26,6 +28,9 @@ export default {
     },
     getLink(id) {
       return `/peppers/${id}`;
+    },
+    getPepperCover(pepper) {
+      return `/img/peppers/${pepper}`;
     },
   },
 };
@@ -51,10 +56,12 @@ export default {
     justify-content: center;
     align-items: center;
   }
+
   &__cover > img {
     height: auto;
     width: 100%;
   }
+
   &__subtitle {
     margin-top: 10px;
   }

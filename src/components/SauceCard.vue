@@ -1,13 +1,15 @@
 <template>
   <router-link
+    v-if="sauce"
     class="sauce__card"
     :to="getLink(sauce.id)"
     @click="this.scrollToTop"
   >
     <div class="sauce__cover">
       <img
-        :src="require(`@/assets/sauces/${sauce.img[1]}`)"
+        :src="'https://dev.angels.kz/' + sauce.img[1]"
         :alt="sauce.name"
+        v-if="sauce.img"
       />
     </div>
     <h2 class="sauce__subtitle subtitle-sauce">
@@ -28,6 +30,9 @@ export default {
     },
     getLink(id) {
       return `/sauces/${id}`;
+    },
+    getSauceCover(sauce) {
+      return `/img/sauces/${sauce}`;
     },
   },
 };

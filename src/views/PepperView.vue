@@ -1,10 +1,7 @@
 <template>
-  <section class="pepper">
+  <section class="pepper" v-if="peppers">
     <div class="pepper__cover">
-      <img
-        :src="require(`@/assets/peppers/${pepper.cover}`)"
-        :alt="pepper.name"
-      />
+      <img :src="'https://dev.angels.kz/' + pepper.img[0]" :alt="pepper.name" />
     </div>
     <h2 class="pepper__title title">{{ pepper.name }}</h2>
     <p class="pepper__text text">{{ pepper.alias }} {{ pepper.desc }}</p>
@@ -15,7 +12,6 @@
 
 <script>
 import SocialBlock from "@/components/SocialBlock.vue";
-import peppers from "../assets/json/peppers.json";
 import PeppersBlock from "@/components/PeppersBlock.vue";
 export default {
   name: "PepperView",
@@ -23,12 +19,31 @@ export default {
     SocialBlock,
     PeppersBlock,
   },
+  data() {
+    return {
+      peppers: null,
+    };
+  },
+  created() {
+    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+
+    fetch(urlPeppers, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.peppers = JSON.parse(text).peppers;
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
+  },
   computed: {
-    peppers() {
-      return peppers;
-    },
     pepper() {
-      return peppers[this.$route.params.id - 1];
+      return this.peppers[this.$route.params.id - 1];
+    },
+  },
+  methods: {
+    getPepperCover(pepper) {
+      return `/img/peppers/${pepper}`;
     },
   },
 };

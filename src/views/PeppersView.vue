@@ -24,18 +24,12 @@
 
 <script>
 import SocialBlock from "@/components/SocialBlock.vue";
-import peppers from "../assets/json/peppers.json";
 import PeppersBlock from "@/components/PeppersBlock.vue";
 export default {
   name: "PeppersView",
   components: {
     SocialBlock,
     PeppersBlock,
-  },
-  computed: {
-    peppers() {
-      return peppers;
-    },
   },
 };
 </script>

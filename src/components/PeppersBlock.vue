@@ -1,5 +1,5 @@
 <template>
-  <div class="peppers__container">
+  <div class="peppers__container" v-if="peppers">
     <PepperCard v-for="pepper in peppers" :pepper="pepper" :key="pepper.id">
     </PepperCard>
   </div>
@@ -7,14 +7,25 @@
 
 <script>
 import PepperCard from "@/components/PepperCard.vue";
-import peppers from "../assets/json/peppers.json";
 export default {
   name: "PeppersBlock",
   components: PepperCard,
-  computed: {
-    peppers() {
-      return peppers;
-    },
+  data() {
+    return {
+      peppers: null,
+    };
+  },
+  created() {
+    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+
+    fetch(urlPeppers, {
+      method: "GET",
+    })
+      .then((response) => response.text())
+      .then((text) => {
+        this.peppers = JSON.parse(text).peppers;
+      })
+      .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
 };
 </script>
