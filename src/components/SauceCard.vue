@@ -7,7 +7,7 @@
   >
     <div class="sauce__cover">
       <img
-        :src="'https://dev.angels.kz/' + sauce.img[1]"
+        :src="'https://dev.angels.kz/' + sauce.img[0]"
         :alt="sauce.name"
         v-if="sauce.img"
       />
