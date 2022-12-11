@@ -13,7 +13,7 @@
       />
     </div>
     <h2 class="sauce__subtitle subtitle-sauce">
-      {{ sauce.name }} Sauce — Extra Hot
+      {{ sauce.name }}
     </h2>
   </router-link>
 </template>
@@ -42,7 +42,7 @@ export default {
 .sauce {
   &__card {
     width: 48%;
-    height: 200px;
+    // height: 200px;
     padding: 10px;
     margin-bottom: 30px;
     background: #ffffff;
