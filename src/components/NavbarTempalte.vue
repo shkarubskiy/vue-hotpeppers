@@ -33,7 +33,7 @@
           class="nav__image"
         />
       </router-link>
-      <a class="nav__item" href="tel:+7-701-222-01-01">
+      <a class="nav__item" href="tel:+7-707-222-01-01">
         <img
           src="../assets/footer/phone.svg"
           alt="Peppers"
