@@ -1,6 +1,6 @@
 <template>
   <section class="social">
-    <a href="#" class="social__item">
+    <a href="https://www.facebook.com/superhotpeppersalmaty?mibextid=ZbWKwL" class="social__item">
       <img class="social__image" src="../assets/social/fb.png" alt="Facebook" />
     </a>
     <a
