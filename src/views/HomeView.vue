@@ -3,7 +3,9 @@
     <div class="intro__cover">
       <img src="../assets/home/intro.jpg" alt="Intro cover" />
     </div>
-    <h2 class="intro__title title">Экстра острые соусы в Алматы 🌶️🔥❤️</h2>
+    <h2 class="intro__title title">
+      Целебные продукты из самых острых перцев мира 🌶️🔥❤️
+    </h2>
     <p class="intro__text text">
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
@@ -14,7 +16,7 @@
     </div>
     <router-link to="/sauces">
       <button class="sauces__button button" @click="this.scrollToTop">
-        Все соусы в каталоге
+        Вся продукция в каталоге
       </button>
     </router-link>
   </section>
