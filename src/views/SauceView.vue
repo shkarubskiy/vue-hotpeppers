@@ -1,13 +1,13 @@
 <template>
   <section class="sauce" v-if="sauces">
-    <div class="sauce__cover">
+    <div class="sauce__cover" v-if="sauce.img">
       <img
         class="preview"
-        :src="'https://dev.angels.kz/' + sauce.img[1]"
+        :src="'https://dev.angels.kz/' + sauce.img[0]"
         :alt="sauce.name"
       />
     </div>
-    <div class="sauce__images">
+    <div class="sauce__images" v-if="sauce.img">
       <div
         class="sauce__image"
         v-for="(img, index) in sauce.img"
