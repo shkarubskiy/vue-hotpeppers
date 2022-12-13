@@ -31,17 +31,28 @@ export default {
     };
   },
   created() {
-    const urlItems = "https://dev.angels.kz/?q=items/list";
+    this.getSauces();
+    // const urlItems = "https://dev.angels.kz/?q=items/list";
 
-    fetch(urlItems, {
-      method: "GET",
-    })
-      .then((response) => response.text())
-      .then((text) => {
-        this.sauces = JSON.parse(text).items;
-        // console.log(this.sauces);
-      })
-      .catch((err) => console.error(`JSON ERROR: ${err}`));
+    // fetch(urlItems, {
+    //   method: "GET",
+    // })
+    //   .then((response) => response.text())
+    //   .then((text) => {
+    //     this.sauces = JSON.parse(text).items;
+    //     // console.log(this.sauces);
+    //   })
+    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
+  },
+  methods: {
+    async getSauces() {
+      const URL = "https://dev.angels.kz/?q=items/list";
+      const RES = await fetch(URL, {
+        method: "GET",
+      });
+      let response = await RES.json();
+      this.sauces = response.items;
+    },
   },
 };
 </script>

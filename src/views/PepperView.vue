@@ -25,25 +25,34 @@ export default {
     };
   },
   created() {
-    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+    // const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
 
-    fetch(urlPeppers, {
-      method: "GET",
-    })
-      .then((response) => response.text())
-      .then((text) => {
-        this.peppers = JSON.parse(text).peppers;
-      })
-      .catch((err) => console.error(`JSON ERROR: ${err}`));
+    // fetch(urlPeppers, {
+    //   method: "GET",
+    // })
+    //   .then((response) => response.text())
+    //   .then((text) => {
+    //     this.peppers = JSON.parse(text).peppers;
+    //   })
+    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
+    this.getPeppers();
   },
   computed: {
     pepper() {
-      return this.peppers[this.$route.params.id - 1];
+      return this.peppers[this.$route.params.id];
     },
   },
   methods: {
-    getPepperCover(pepper) {
-      return `/img/peppers/${pepper}`;
+    // getPepperCover(pepper) {
+    //   return `/img/peppers/${pepper}`;
+    // },
+    async getPeppers() {
+      const URL = "https://dev.angels.kz/?q=peppers/list";
+      const RES = await fetch(URL, {
+        method: "GET",
+      });
+      let response = await RES.json();
+      this.peppers = response.peppers;
     },
   },
 };

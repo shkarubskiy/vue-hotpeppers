@@ -3,7 +3,7 @@
     <div class="nav__container">
       <router-link
         class="nav__item"
-        :class="{ active: currentRouteName == 'home' }"
+        :class="{ active: this.$route.name == 'home' }"
         to="/"
         @click="this.scrollToTop"
       >
@@ -11,7 +11,7 @@
       </router-link>
       <router-link
         class="nav__item"
-        :class="{ active: currentRouteName == 'sauces' }"
+        :class="{ active: this.$route.name == 'sauces' }"
         to="/sauces"
         @click="this.scrollToTop"
       >
@@ -23,7 +23,7 @@
       </router-link>
       <router-link
         class="nav__item"
-        :class="{ active: currentRouteName == 'peppers' }"
+        :class="{ active: this.$route.name == 'peppers' }"
         to="/peppers"
         @click="this.scrollToTop"
       >
@@ -33,7 +33,7 @@
           class="nav__image"
         />
       </router-link>
-      <a class="nav__item" href="tel:+7-707-222-01-01">
+      <a class="nav__item" href="tel:+7-707-222-01-11">
         <img
           src="../assets/footer/phone.svg"
           alt="Peppers"
@@ -57,11 +57,11 @@
 <script>
 export default {
   name: "NavbarTemplate",
-  computed: {
-    currentRouteName() {
-      return this.$route.name;
-    },
-  },
+  // computed: {
+  //   currentRouteName() {
+  //     return this.$route.name;
+  //   },
+  // },
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);

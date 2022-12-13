@@ -33,21 +33,22 @@ export default {
     };
   },
   created() {
-    const urlItems = "https://dev.angels.kz/?q=items/list";
+    // const urlItems = "https://dev.angels.kz/?q=items/list";
 
-    fetch(urlItems, {
-      method: "GET",
-    })
-      .then((response) => response.text())
-      .then((text) => {
-        this.sauces = JSON.parse(text).items;
-        // console.log(this.sauces);
-      })
-      .catch((err) => console.error(`JSON ERROR: ${err}`));
+    // fetch(urlItems, {
+    //   method: "GET",
+    // })
+    //   .then((response) => response.text())
+    //   .then((text) => {
+    //     this.sauces = JSON.parse(text).items;
+    //     console.log(this.sauces);
+    //   })
+    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
+    this.getSauces();
   },
   computed: {
     sauce() {
-      return this.sauces[this.$route.params.id - 1];
+      return this.sauces[this.$route.params.id];
     },
   },
   methods: {
@@ -55,8 +56,16 @@ export default {
       const preview = document.querySelector(".preview");
       preview.src = image;
     },
-    getSauceCover(sauce) {
-      return `/img/sauces/${sauce}`;
+    // getSauceCover(sauce) {
+    //   return `/img/sauces/${sauce}`;
+    // },
+    async getSauces() {
+      const URL = "https://dev.angels.kz/?q=items/list";
+      const RES = await fetch(URL, {
+        method: "GET",
+      });
+      let response = await RES.json();
+      this.sauces = response.items;
     },
   },
 };

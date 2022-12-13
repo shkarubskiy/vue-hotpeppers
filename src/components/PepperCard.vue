@@ -2,7 +2,7 @@
   <router-link
     v-if="pepper"
     class="pepper__card"
-    :to="getLink(pepper.id)"
+    :to="'/peppers/' + pepper.id"
     @click="this.scrollToTop"
   >
     <div class="pepper__cover">
@@ -26,12 +26,12 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    getLink(id) {
-      return `/peppers/${id}`;
-    },
-    getPepperCover(pepper) {
-      return `/img/peppers/${pepper}`;
-    },
+    // getLink(id) {
+    //   return `/peppers/${id}`;
+    // },
+    // getPepperCover(pepper) {
+    //   return `/img/peppers/${pepper}`;
+    // },
   },
 };
 </script>

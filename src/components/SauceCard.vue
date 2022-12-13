@@ -2,7 +2,7 @@
   <router-link
     v-if="sauce"
     class="sauce__card"
-    :to="getLink(sauce.id)"
+    :to="'/sauces/' + sauce.id"
     @click="this.scrollToTop"
   >
     <div class="sauce__cover">
@@ -28,12 +28,12 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    getLink(id) {
-      return `/sauces/${id}`;
-    },
-    getSauceCover(sauce) {
-      return `/img/sauces/${sauce}`;
-    },
+    // getLink(id) {
+    //   return `/sauces/${id}`;
+    // },
+    // getSauceCover(sauce) {
+    //   return `/img/sauces/${sauce}`;
+    // },
   },
 };
 </script>

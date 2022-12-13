@@ -16,16 +16,27 @@ export default {
     };
   },
   created() {
-    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+    this.getPeppers();
+    // const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
 
-    fetch(urlPeppers, {
-      method: "GET",
-    })
-      .then((response) => response.text())
-      .then((text) => {
-        this.peppers = JSON.parse(text).peppers;
-      })
-      .catch((err) => console.error(`JSON ERROR: ${err}`));
+    // fetch(urlPeppers, {
+    //   method: "GET",
+    // })
+    //   .then((response) => response.text())
+    //   .then((text) => {
+    //     this.peppers = JSON.parse(text).peppers;
+    //   })
+    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
+  },
+  methods: {
+    async getPeppers() {
+      const URL = "https://dev.angels.kz/?q=peppers/list";
+      const RES = await fetch(URL, {
+        method: "GET",
+      });
+      let response = await RES.json();
+      this.peppers = response.peppers;
+    },
   },
 };
 </script>

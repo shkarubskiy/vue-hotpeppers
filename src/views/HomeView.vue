@@ -23,13 +23,13 @@
   <section v-if="peppers" class="peppers">
     <div class="peppers__cover">
       <img
-        :src="'https://dev.angels.kz/' + peppers[0].img[0]"
-        :alt="peppers[0].name"
-        v-if="peppers[0].img[0]"
+        :src="'https://dev.angels.kz/' + peppers[1].img[0]"
+        :alt="peppers[1].name"
+        v-if="peppers[1].img[0]"
       />
     </div>
-    <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[0].name }}</h3>
-    <p class="peppers__text text">{{ peppers[0].desc }}</p>
+    <h3 class="peppers__subtitle subtitle-pepper">{{ peppers[1].name }}</h3>
+    <p class="peppers__text text">{{ peppers[1].desc }}</p>
     <router-link to="/peppers" @click="this.scrollToTop">
       <button class="peppers__button button" @click="this.scrollToTop">
         Все острые перцы
@@ -53,35 +53,54 @@ export default {
     };
   },
   created() {
-    const urlItems = "https://dev.angels.kz/?q=items/list";
-    const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
+    // const urlItems = "https://dev.angels.kz/?q=items/list";
+    // const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
 
-    fetch(urlItems, {
-      method: "GET",
-    })
-      .then((response) => response.text())
-      .then((text) => {
-        this.sauces = JSON.parse(text).items;
-        // console.log(this.sauces);
-      })
-      .catch((err) => console.error(`JSON ERROR: ${err}`));
+    this.getPeppers();
+    this.getSauces();
 
-    fetch(urlPeppers, {
-      method: "GET",
-    })
-      .then((response) => response.text())
-      .then((text) => {
-        this.peppers = JSON.parse(text).peppers;
-        // console.log(this.peppers);
-      })
-      .catch((err) => console.error(`JSON ERROR: ${err}`));
+    // fetch(urlItems, {
+    //   method: "GET",
+    // })
+    //   .then((response) => response.text())
+    //   .then((text) => {
+    //     this.sauces = JSON.parse(text).items;
+    //     // console.log(this.sauces);
+    //   })
+    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
+
+    // fetch(urlPeppers, {
+    //   method: "GET",
+    // })
+    //   .then((response) => response.text())
+    //   .then((text) => {
+    //     this.peppers = JSON.parse(text).peppers;
+    //     // console.log(this.peppers);
+    //   })
+    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    getPepperCover(pepper) {
-      return `/img/peppers/${pepper}`;
+    // getPepperCover(pepper) {
+    //   return `/img/peppers/${pepper}`;
+    // },
+    async getPeppers() {
+      const URL = "https://dev.angels.kz/?q=peppers/list";
+      const RES = await fetch(URL, {
+        method: "GET",
+      });
+      let response = await RES.json();
+      this.peppers = response.peppers;
+    },
+    async getSauces() {
+      const URL = "https://dev.angels.kz/?q=items/list";
+      const RES = await fetch(URL, {
+        method: "GET",
+      });
+      let response = await RES.json();
+      this.sauces = response.items;
     },
   },
   components: {
