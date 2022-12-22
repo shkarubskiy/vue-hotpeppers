@@ -10,9 +10,13 @@
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
   </section>
-  <section class="sauces" v-if="sauces">
+  <section class="sauces" v-if="saucesPreview">
     <div class="sauces__container">
-      <SauceCard v-for="sauce in sauces" :sauce="sauce" :key="sauce.id" />
+      <SauceCard
+        v-for="(sauce, index) in saucesPreview"
+        :sauce="sauce"
+        :key="index"
+      />
     </div>
     <router-link to="/sauces">
       <button class="sauces__button button" @click="this.scrollToTop">
@@ -50,42 +54,17 @@ export default {
     return {
       peppers: null,
       sauces: null,
+      saucesPreview: [],
     };
   },
   created() {
-    // const urlItems = "https://dev.angels.kz/?q=items/list";
-    // const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
-
     this.getPeppers();
     this.getSauces();
-
-    // fetch(urlItems, {
-    //   method: "GET",
-    // })
-    //   .then((response) => response.text())
-    //   .then((text) => {
-    //     this.sauces = JSON.parse(text).items;
-    //     // console.log(this.sauces);
-    //   })
-    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
-
-    // fetch(urlPeppers, {
-    //   method: "GET",
-    // })
-    //   .then((response) => response.text())
-    //   .then((text) => {
-    //     this.peppers = JSON.parse(text).peppers;
-    //     // console.log(this.peppers);
-    //   })
-    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    // getPepperCover(pepper) {
-    //   return `/img/peppers/${pepper}`;
-    // },
     async getPeppers() {
       const URL = "https://dev.angels.kz/?q=peppers/list";
       const RES = await fetch(URL, {
@@ -101,6 +80,13 @@ export default {
       });
       let response = await RES.json();
       this.sauces = response.items;
+      let count = 6;
+      for (let prop in this.sauces) {
+        if (count > 0) {
+          this.saucesPreview.push(this.sauces[prop]);
+          count--;
+        }
+      }
     },
   },
   components: {
