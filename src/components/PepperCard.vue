@@ -26,12 +26,6 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    // getLink(id) {
-    //   return `/peppers/${id}`;
-    // },
-    // getPepperCover(pepper) {
-    //   return `/img/peppers/${pepper}`;
-    // },
   },
 };
 </script>

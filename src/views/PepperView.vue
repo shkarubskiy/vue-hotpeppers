@@ -25,16 +25,6 @@ export default {
     };
   },
   created() {
-    // const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
-
-    // fetch(urlPeppers, {
-    //   method: "GET",
-    // })
-    //   .then((response) => response.text())
-    //   .then((text) => {
-    //     this.peppers = JSON.parse(text).peppers;
-    //   })
-    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
     this.getPeppers();
   },
   computed: {
@@ -43,9 +33,6 @@ export default {
     },
   },
   methods: {
-    // getPepperCover(pepper) {
-    //   return `/img/peppers/${pepper}`;
-    // },
     async getPeppers() {
       const URL = "https://dev.angels.kz/?q=peppers/list";
       const RES = await fetch(URL, {

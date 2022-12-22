@@ -28,12 +28,6 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
-    // getLink(id) {
-    //   return `/sauces/${id}`;
-    // },
-    // getSauceCover(sauce) {
-    //   return `/img/sauces/${sauce}`;
-    // },
   },
 };
 </script>

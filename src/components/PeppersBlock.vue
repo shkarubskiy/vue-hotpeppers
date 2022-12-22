@@ -17,16 +17,6 @@ export default {
   },
   created() {
     this.getPeppers();
-    // const urlPeppers = "https://dev.angels.kz/?q=peppers/list";
-
-    // fetch(urlPeppers, {
-    //   method: "GET",
-    // })
-    //   .then((response) => response.text())
-    //   .then((text) => {
-    //     this.peppers = JSON.parse(text).peppers;
-    //   })
-    //   .catch((err) => console.error(`JSON ERROR: ${err}`));
   },
   methods: {
     async getPeppers() {
