@@ -1,5 +1,5 @@
 <template>
-  <section class="sauce" v-if="sauces">
+  <section class="sauce" v-if="sauce">
     <div class="sauce__cover" v-if="sauce.img">
       <img
         class="preview"
@@ -30,28 +30,31 @@ export default {
   data() {
     return {
       sauces: null,
+      sauce: null,
     };
   },
   created() {
-    this.getSauces();
+    this.getSauce();
   },
   computed: {
-    sauce() {
-      return this.sauces[this.$route.params.id];
-    },
+    // sauce() {
+    //   return this.sauces[this.$route.params.id];
+    // },
   },
   methods: {
     showImg(image) {
       const preview = document.querySelector(".preview");
       preview.src = image;
     },
-    async getSauces() {
-      const URL = "https://dev.angels.kz/?q=items/list";
+    async getSauce() {
+      const URL =
+        "https://dev.angels.kz/?q=items/get-by-id/" + this.$route.params.id;
       const RES = await fetch(URL, {
         method: "GET",
       });
       let response = await RES.json();
-      this.sauces = response.items;
+      console.log(response);
+      this.sauce = response.item;
     },
   },
 };

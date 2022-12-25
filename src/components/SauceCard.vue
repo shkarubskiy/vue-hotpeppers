@@ -21,9 +21,7 @@
 <script>
 export default {
   name: "SauceCard",
-  props: {
-    sauce: null,
-  },
+  props: ["sauce"],
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);

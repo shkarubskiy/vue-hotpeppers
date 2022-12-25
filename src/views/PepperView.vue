@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     pepper() {
-      return this.peppers[this.$route.params.id];
+      return this.peppers.find((pepper) => pepper.id == this.$route.params.id);
     },
   },
   methods: {

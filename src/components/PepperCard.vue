@@ -19,9 +19,7 @@
 <script>
 export default {
   name: "PepperCard",
-  props: {
-    pepper: null,
-  },
+  props: ["pepper"],
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
