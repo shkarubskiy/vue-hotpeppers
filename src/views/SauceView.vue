@@ -19,7 +19,7 @@
     </div>
     <h2 class="sauce__title title">{{ sauce.name }}</h2>
     <p class="sauce__price">Цена - {{ sauce.price }} тг</p>
-    <p class="sauce__text text">{{ sauce.desc }}</p>
+    <pre class="sauce__pretext pretext">{{ sauce.desc }}</pre>
   </section>
   <SocialBlock />
 </template>

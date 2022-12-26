@@ -100,6 +100,28 @@ body {
   color: #000000;
 }
 
+.pretext {
+  font-family: "Kurale";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  font-feature-settings: "calt" off;
+  color: #000000;
+
+  white-space: pre-wrap;
+  /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+
 .button {
   padding: 9px 24px;
   font-family: "Inter";
