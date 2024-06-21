@@ -16,6 +16,12 @@
         alt="Instagram"
       />
     </a>
+    <a
+      href="https://www.tiktok.com/@hotpepperalmaty?_t=8mVMVV3CJCY&_r=1"
+      class="social__item"
+    >
+      <img class="social__image" src="../assets/social/tt.png" alt="TikTok" />
+    </a>
   </section>
 </template>
 
@@ -27,8 +33,16 @@ export default {
 
 <style lang="less" scoped>
 .social {
+  margin-bottom: 20px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  &__image {
+    width: 60px;
+    height: 60px;
+    border: solid 2px #eb5757;
+    border-radius: 15px;
+  }
 }
 </style>
