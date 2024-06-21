@@ -42,7 +42,7 @@ export default {
 .sauce {
   &__card {
     width: 48%;
-    height: 200px;
+    height: 250px;
     padding: 10px;
     margin-bottom: 30px;
     background: #ffffff;
