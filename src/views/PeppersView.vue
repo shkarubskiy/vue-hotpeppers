@@ -1,5 +1,6 @@
 <template>
   <section class="peppers">
+    <SocialBlock />
     <div class="peppers__cover">
       <img src="../assets/peppers/cover.jpg" alt="Cover" />
     </div>

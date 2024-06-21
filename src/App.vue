@@ -159,6 +159,7 @@ body {
   &__logo {
     height: 100px;
     width: 100px;
+    margin-bottom: 30px;
   }
 
   &__logo img {

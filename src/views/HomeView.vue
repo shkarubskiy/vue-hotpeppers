@@ -1,5 +1,6 @@
 <template>
   <section class="intro">
+    <SocialBlock />
     <div class="intro__cover">
       <img src="../assets/home/intro.jpg" alt="Intro cover" />
     </div>

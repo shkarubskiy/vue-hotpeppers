@@ -1,5 +1,6 @@
 <template>
   <section class="intro">
+    <SocialBlock />
     <div class="intro__cover cover">
       <img class="cover__image" src="../assets/sauces/intro.jpg" alt="intro" />
     </div>

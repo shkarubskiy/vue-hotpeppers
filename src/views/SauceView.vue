@@ -1,5 +1,6 @@
 <template>
   <section class="sauce" v-if="sauce">
+    <SocialBlock />
     <div class="sauce__cover" v-if="sauce.img">
       <img
         class="preview"

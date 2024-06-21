@@ -1,5 +1,6 @@
 <template>
   <section class="pepper" v-if="peppers">
+    <SocialBlock />
     <div class="pepper__cover">
       <img :src="'https://dev.angels.kz/' + pepper.img[0]" :alt="pepper.name" />
     </div>
