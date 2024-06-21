@@ -1,6 +1,10 @@
 <template>
   <section class="social">
-    <a href="http://instagram.com/_u/hotpeppersalmaty/" class="social__item">
+    <a
+      href="http://instagram.com/_u/hotpeppersalmaty/"
+      target="_blank"
+      class="social__item"
+    >
       <img
         class="social__image"
         src="../assets/social/ig.png"
@@ -9,17 +13,19 @@
     </a>
     <a
       href="https://www.tiktok.com/@hotpepperalmaty?_t=8mVMVV3CJCY&_r=1"
+      target="_blank"
       class="social__item"
     >
       <img class="social__image" src="../assets/social/tt.png" alt="TikTok" />
     </a>
     <a
       href="https://m.youtube.com/channel/UCbJ_Ngk63HxyaqMiRbLah7g"
+      target="_blank"
       class="social__item"
     >
       <img class="social__image" src="../assets/social/yt.png" alt="YouTube" />
     </a>
-    <a href="#" class="social__item">
+    <a href="#" target="_blank" class="social__item">
       <img class="social__image" src="../assets/social/fb.png" alt="Facebook" />
     </a>
   </section>

@@ -3,7 +3,7 @@
     <div class="sauce__cover">
       <img
         class="preview"
-        :src="'https://dev.angels.kz/' + sauce.img[1]"
+        :src="'https://dev.angels.kz/' + sauce.img[0]"
         :alt="sauce.name"
       />
     </div>
@@ -47,7 +47,8 @@ export default {
   },
   computed: {
     sauce() {
-      return this.sauces[this.$route.params.id - 1];
+      // return this.sauces[this.$route.params.id - 1];
+      return this.sauces.find((sauce) => sauce.id == this.$route.params.id);
     },
   },
   methods: {

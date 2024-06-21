@@ -31,7 +31,7 @@ export default {
     };
   },
   created() {
-    const urlItems = "https://dev.angels.kz/?q=items/list";
+    const urlItems = "https://hot.angels.kz/?q=items/list";
 
     fetch(urlItems, {
       method: "GET",
