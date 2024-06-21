@@ -3,7 +3,9 @@
     <div class="intro__cover">
       <img src="../assets/home/intro.jpg" alt="Intro cover" />
     </div>
-    <h2 class="intro__title title">Экстра острые соусы в Казахстане 🌶️🔥❤️</h2>
+    <h2 class="intro__title title">
+      Самые Острые Перцы и Соусы в Казахстане 🌶️🔥❤️
+    </h2>
     <p class="intro__text text">
       Душа Перца предлагает вам окунуться в тонкий мир палящего вкуса.
     </p>
@@ -98,6 +100,8 @@ export default {
 
   &__title {
     margin-top: 30px;
+    padding: 0 20px;
+    text-align: center;
   }
 
   &__cover {
