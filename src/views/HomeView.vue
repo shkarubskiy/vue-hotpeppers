@@ -1,5 +1,6 @@
 <template>
   <section class="intro">
+    <SocialBlock />
     <div class="intro__cover">
       <img src="../assets/home/intro.jpg" alt="Intro cover" />
     </div>
@@ -107,7 +108,7 @@ export default {
   &__cover {
     width: 100%;
     height: 350px;
-    margin-top: 30px;
+    // margin-top: 30px;
     overflow: hidden;
     border-radius: 20px;
 

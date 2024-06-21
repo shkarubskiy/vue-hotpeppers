@@ -1,14 +1,5 @@
 <template>
   <section class="social">
-    <a href="#" class="social__item">
-      <img class="social__image" src="../assets/social/fb.png" alt="Facebook" />
-    </a>
-    <a
-      href="https://m.youtube.com/channel/UCbJ_Ngk63HxyaqMiRbLah7g"
-      class="social__item"
-    >
-      <img class="social__image" src="../assets/social/yt.png" alt="YouTube" />
-    </a>
     <a href="http://instagram.com/_u/hotpeppersalmaty/" class="social__item">
       <img
         class="social__image"
@@ -21,6 +12,15 @@
       class="social__item"
     >
       <img class="social__image" src="../assets/social/tt.png" alt="TikTok" />
+    </a>
+    <a
+      href="https://m.youtube.com/channel/UCbJ_Ngk63HxyaqMiRbLah7g"
+      class="social__item"
+    >
+      <img class="social__image" src="../assets/social/yt.png" alt="YouTube" />
+    </a>
+    <a href="#" class="social__item">
+      <img class="social__image" src="../assets/social/fb.png" alt="Facebook" />
     </a>
   </section>
 </template>
@@ -43,6 +43,8 @@ export default {
     height: 60px;
     border: solid 2px #eb5757;
     border-radius: 15px;
+    filter: drop-shadow(0px 0px 10px white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
   }
 }
 </style>

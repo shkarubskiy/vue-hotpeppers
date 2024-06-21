@@ -1,20 +1,20 @@
 <template>
   <header class="header">
     <div class="header__pattern">
-      <div class="header__container">
+      <!-- <div class="header__container">
         <SocialBlock />
-      </div>
+      </div> -->
     </div>
   </header>
 </template>
 
 <script>
-import SocialBlock from "@/components/SocialBlock.vue";
+// import SocialBlock from "@/components/SocialBlock.vue";
 export default {
   name: "HeaderTemplate",
-  components: {
-    SocialBlock,
-  },
+  // components: {
+  //   SocialBlock,
+  // },
 };
 </script>
 
