@@ -25,7 +25,11 @@
     >
       <img class="social__image" src="../assets/social/yt.png" alt="YouTube" />
     </a>
-    <a href="https://www.facebook.com/share/yoiVYXA2HfMgcxvt/?mibextid=qi2Omg" target="_blank" class="social__item">
+    <a
+      href="https://www.facebook.com/share/yoiVYXA2HfMgcxvt/?mibextid=qi2Omg"
+      target="_blank"
+      class="social__item"
+    >
       <img class="social__image" src="../assets/social/fb.png" alt="Facebook" />
     </a>
   </section>
